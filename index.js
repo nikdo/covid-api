@@ -5,7 +5,7 @@ const { fetchData } = require('./fetchData')
 const port = process.env.PORT || '3030'
 const app = express()
 
-app.use(cors())
+process.env.NODE_ENV === 'development' && app.use(cors())
 
 app.get('/risk-score', (_req, res) => {
   fetchData()
